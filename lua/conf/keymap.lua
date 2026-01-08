@@ -71,3 +71,16 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+
+
+-- Neovide zoom
+vim.keymap.set("n", "<C-=>", ":set guifont+=h1<CR>", { desc = "Zoom in" })
+vim.keymap.set("n", "<C-->", ":set guifont-=h1<CR>", { desc = "Zoom out" })
+vim.keymap.set("n", "<C-0>", ":set guifont=FiraCode Nerd Font:h14<CR>", { desc = "Reset zoom" })
+
+
+
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = 1.0
+end
+
