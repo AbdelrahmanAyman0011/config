@@ -8,7 +8,7 @@ return {
   },
 
   config = function()
-    vim.api.nvim_create_autocmd('LspAttach', {
+  vim.api.nvim_create_autocmd('LspAttach', {
       desc = 'LSP actions',
       callback = function(event)
         local opts = {buffer = event.buf}
@@ -47,6 +47,29 @@ return {
         -- end,
       },
     })
+-- =========================
+-- Neovim 0.11+ LSP CONFIG
+-- =========================
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" },
+      },
+    },
+  },
+})
+
+vim.lsp.config("clangd", {})
+vim.lsp.config("pyright", {})
+
+-- Enable servers (NEW API)
+vim.lsp.enable({
+  "lua_ls",
+  "clangd",
+  "pyright",
+})
 
     local cmp = require("cmp")
 
@@ -139,4 +162,3 @@ return {
   })
   end
 }
-
