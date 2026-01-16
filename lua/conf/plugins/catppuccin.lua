@@ -8,6 +8,6 @@ return {
       flavour = "latte", -- Light blue theme!  (bashbunni's choice)
       transparent_background = false, -- Set to false for light theme
     })
-    vim.cmd([[colorscheme catppuccin]])
+   -- vim.cmd([[colorscheme catppuccin]])
   end,
 }
