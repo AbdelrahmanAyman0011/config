@@ -63,12 +63,14 @@ vim.lsp.config("lua_ls", {
 
 vim.lsp.config("clangd", {})
 vim.lsp.config("pyright", {})
+vim.lsp.config("gopls",{})
 
 -- Enable servers (NEW API)
 vim.lsp.enable({
   "lua_ls",
   "clangd",
   "pyright",
+  "gopls",
 })
 
     local cmp = require("cmp")
