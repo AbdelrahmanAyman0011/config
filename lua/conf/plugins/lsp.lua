@@ -64,13 +64,14 @@ vim.lsp.config("lua_ls", {
 vim.lsp.config("clangd", {})
 vim.lsp.config("pyright", {})
 vim.lsp.config("gopls",{})
-
+vim.lsp.config("jdtls",{}) -- java
 -- Enable servers (NEW API)
 vim.lsp.enable({
   "lua_ls",
   "clangd",
   "pyright",
   "gopls",
+  "jdtls",
 })
 
     local cmp = require("cmp")
