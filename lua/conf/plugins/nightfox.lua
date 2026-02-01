@@ -8,7 +8,7 @@ return {
         transparent = false,
       }
     })
-    vim.cmd([[colorscheme retrobox]])
+    --vim.cmd([[colorscheme retrobox]])
     --vim.cmd([[colorscheme dayfox]]) -- Light blue theme! 
   
   end,
