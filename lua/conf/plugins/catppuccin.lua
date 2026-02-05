@@ -8,6 +8,6 @@ return {
       flavour = "macchiato",
       transparent_background = false, -- Set to false for light theme
     })
-    vim.cmd([[colorscheme catppuccin-macchiato]])
+   -- vim.cmd([[colorscheme catppuccin-macchiato]])
   end,
 }
