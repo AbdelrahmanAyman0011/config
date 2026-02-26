@@ -34,7 +34,7 @@ local options = {
   wrap = false,
   scrolloff = 4,
   sidescrolloff = 4,
-  guifont = "JetBrainsMono_Nerd_Font:h12", -- Changed from h11 to h9 (smaller)
+  guifont = "ComicShannsMono_Nerd_Font_Mono:h16",
   --guifont = "Cascadia_Mono:h10",
 }
 
