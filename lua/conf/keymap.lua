@@ -89,7 +89,8 @@ vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>")
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame_line<CR>")
-vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>")
+vim.keymap.set("n", "<leader>gd", ":Gitsigns diffthis<CR>", { desc = "Git Diff This File" })
+vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_status<cr>", { desc = "Git Status (Changed Files)" })
 
 -- Format current buffer using LSP
 vim.keymap.set("n", "<leader>f", function()
