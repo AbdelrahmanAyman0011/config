@@ -79,7 +79,21 @@ This configuration uses the following plugins:
 | `<leader>gr` | Reset hunk |
 | `<leader>gp` | Preview hunk |
 | `<leader>gb` | Blame line |
-| `<leader>gd` | Diff this |
+| `<leader>gd` | Diff current file |
+| `<leader>gc` | List changed files (Telescope) |
+
+### Debugging (DAP)
+
+| Key | Action |
+| --- | --- |
+| `<F5>` | Start/Continue debugging |
+| `<F10>` | Step Over |
+| `<F11>` | Step Into |
+| `<F12>` | Step Out |
+| `<leader>b` | Toggle Breakpoint |
+| `<leader>B` | Set Conditional Breakpoint |
+| `<leader>dr` | Open REPL |
+| `<leader>du` | Toggle Debug UI |
 
 ## Configuration
 
@@ -120,4 +134,4 @@ The following options are set:
 -   `wrap = false`
 -   `scrolloff = 4`
 -   `sidescrolloff = 4`
--   `guifont = "JetBrainsMono_Nerd_Font:h11"`
+-   `guifont = "JetBrains Mono:h11"`
