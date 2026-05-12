@@ -62,3 +62,6 @@ vim.opt.shortmess:append "c"
 
 vim.opt.clipboard = "unnamedplus"
 
+vim.cmd([[colorscheme wildcharm]])
+
+
