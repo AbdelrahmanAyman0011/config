@@ -8,11 +8,5 @@ if vim.g.neovide then
 end
 
 require "conf"
-
--- Ensure transparent background
-vim.cmd([[
-augroup user_colors
-  autocmd!
-  autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-augroup END
-]])
+vim.opt.background = "dark"
+vim.cmd("colorscheme oxocarbon")

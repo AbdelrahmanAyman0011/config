@@ -102,3 +102,27 @@ vim.keymap.set("n", "<leader>fj", function()
   vim.cmd("%!jq .")
 end, { desc = "Format JSON" })
 
+
+-- Theme Toggles
+vim.api.nvim_create_user_command("LightMode", function()
+  vim.cmd("colorscheme catppuccin-latte")
+  print("Switched to Light Mode (Catppuccin Latte)")
+end, {})
+
+vim.api.nvim_create_user_command("DarkMode", function()
+  vim.opt.background = "dark"
+  vim.cmd("colorscheme oxocarbon")
+  print("Switched to Dark Mode (Oxocarbon)")
+end, {})
+
+-- Keybind to toggle light/dark mode (Leader + t + l)
+local is_light = false
+vim.keymap.set("n", "<leader>tl", function()
+  if is_light then
+    vim.cmd("DarkMode")
+    is_light = false
+  else
+    vim.cmd("LightMode")
+    is_light = true
+  end
+end, { desc = "Toggle Light/Dark Theme" })
