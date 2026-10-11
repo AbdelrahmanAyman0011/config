@@ -111,8 +111,8 @@ end, {})
 
 vim.api.nvim_create_user_command("DarkMode", function()
   vim.opt.background = "dark"
-  vim.cmd("colorscheme oxocarbon")
-  print("Switched to Dark Mode (Oxocarbon)")
+  vim.cmd("colorscheme catppuccin-mocha")
+  print("Switched to Dark Mode (Catppuccin Mocha)")
 end, {})
 
 -- Keybind to toggle light/dark mode (Leader + t + l)
