@@ -105,14 +105,15 @@ end, { desc = "Format JSON" })
 
 -- Theme Toggles
 vim.api.nvim_create_user_command("LightMode", function()
-  vim.cmd("colorscheme catppuccin-latte")
-  print("Switched to Light Mode (Catppuccin Latte)")
+  vim.opt.background = "light"
+  vim.cmd("colorscheme retrobox")
+  print("Switched to Light Mode (Retrobox Light)")
 end, {})
 
 vim.api.nvim_create_user_command("DarkMode", function()
   vim.opt.background = "dark"
-  vim.cmd("colorscheme catppuccin-mocha")
-  print("Switched to Dark Mode (Catppuccin Mocha)")
+  vim.cmd("colorscheme retrobox")
+  print("Switched to Dark Mode (Retrobox Dark)")
 end, {})
 
 -- Keybind to toggle light/dark mode (Leader + t + l)
