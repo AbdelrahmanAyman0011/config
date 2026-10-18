@@ -1,7 +1,8 @@
 -- NEOVIDE (font/colors come from conf.options and the colorscheme)
 if vim.g.neovide then
-  vim.g.neovide_cursor_animation_length = 0.13
-  vim.g.neovide_cursor_trail_size = 0.8
+  vim.g.neovide_cursor_animation_length = 0.1
+  vim.g.neovide_cursor_short_animation_length = 0.03
+  vim.g.neovide_cursor_trail_size = 0.6
   vim.g.neovide_cursor_antialiasing = true
   vim.g.neovide_cursor_smooth_blink = true
   vim.g.neovide_position_animation_length = 0.15
@@ -10,7 +11,7 @@ if vim.g.neovide then
   vim.g.neovide_floating_corner_radius = 0.3
   vim.g.neovide_refresh_rate = 144
   vim.g.neovide_refresh_rate_idle = 5
-  vim.g.neovide_cursor_vfx_mode = "railgun"
+  vim.g.neovide_cursor_vfx_mode = ""
 
   -- Zoom: Ctrl+= / Ctrl+- / Ctrl+0 and Ctrl+scroll
   vim.g.neovide_scale_factor = 1.0
