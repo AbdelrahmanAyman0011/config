@@ -110,6 +110,26 @@ return {
       vim.lsp.config(server, { capabilities = capabilities })
     end
 
+    -- jdtls itself needs Java 21+, but projects can target Java 11: run the server on
+    -- JDK 21 and tell it to compile/analyse projects against JDK 11.
+    local jvm = "/usr/lib/jvm/"
+    if vim.fn.executable(jvm .. "java-21-openjdk-amd64/bin/java") == 1 then
+      vim.lsp.config("jdtls", {
+        cmd = { "jdtls", "--java-executable", jvm .. "java-21-openjdk-amd64/bin/java" },
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                { name = "JavaSE-11", path = jvm .. "java-11-openjdk-amd64", default = true },
+                { name = "JavaSE-17", path = jvm .. "java-17-openjdk-amd64" },
+                { name = "JavaSE-21", path = jvm .. "java-21-openjdk-amd64" },
+              },
+            },
+          },
+        },
+      })
+    end
+
     -- Configure lua_ls using the new native API
     vim.lsp.config("lua_ls", {
       settings = {
@@ -132,6 +152,7 @@ return {
     local cmp = require("cmp")
 
     local kind_icons = {
+      Copilot = "",
       Text = "",
       Method = "m",
       Function = "",
@@ -159,6 +180,8 @@ return {
       TypeParameter = "",
     }
 
+    require("conf.gemini").setup(cmp)
+
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -166,7 +189,19 @@ return {
         end,
       },
       sources = {
-        {name = "nvim_lsp", group_index = 2},
+        { name = "nvim_lsp", group_index = 2 },
+        { name = "gemini", group_index = 2, keyword_length = 0 },
+      },
+      sorting = {
+        priority_weight = 2,
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
+          cmp.config.compare.kind,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
       },
 
       mapping = cmp.mapping.preset.insert({
@@ -197,8 +232,13 @@ return {
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
           vim_item.kind = string.format("%s", kind_icons[vim_item.kind] or vim_item.kind)
+          if entry.source.name == "copilot" then
+            vim_item.kind = kind_icons.Copilot
+          end
           vim_item.menu = ({
             nvim_lsp = "[LSP]",
+            copilot = "[Copilot]",
+            gemini = "[Gemini]",
             buffer = "[Buffer]",
             path = "[Path]",
           })[entry.source.name]

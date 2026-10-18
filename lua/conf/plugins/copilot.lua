@@ -1,35 +1,24 @@
+-- DISABLED (Gemini is used instead, see conf/gemini.lua). Copilot as an entry in the nvim-cmp popup ([Copilot]) next to LSP items,
+-- instead of inline ghost text. Authenticate once with :Copilot auth
 return {
   {
-    "github/copilot.vim",
+    "zbirenbaum/copilot.lua",
+    enabled = false,
+    cmd = "Copilot",
     event = "InsertEnter",
-    init = function()
-      vim.g.copilot_no_tab_map = true
-    end,
     config = function()
-      vim.keymap.set("i", "<M-w>", "<Plug>(copilot-accept-word)", {
-        desc = "Copilot: accept word",
-        silent = true,
-      })
-      vim.keymap.set("i", "<M-l>", "<Plug>(copilot-accept-line)", {
-        desc = "Copilot: accept line",
-        silent = true,
-      })
-      vim.keymap.set("i", "<C-l>", "<Plug>(copilot-accept-line)", {
-        desc = "Copilot: accept line",
-        silent = true,
-      })
-      vim.keymap.set("i", "<C-]>", "<Plug>(copilot-dismiss)", {
-        desc = "Copilot: dismiss suggestion",
-        silent = true,
-      })
-      vim.keymap.set("i", "<M-]>", "<Plug>(copilot-next)", {
-        desc = "Copilot: next suggestion",
-        silent = true,
-      })
-      vim.keymap.set("i", "<M-[>", "<Plug>(copilot-previous)", {
-        desc = "Copilot: previous suggestion",
-        silent = true,
+      require("copilot").setup({
+        suggestion = { enabled = false }, -- no inline ghost text
+        panel = { enabled = false },
       })
     end,
-  }
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    enabled = false,
+    dependencies = { "zbirenbaum/copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 }
