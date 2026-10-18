@@ -35,7 +35,7 @@ local options = {
   scrolloff = 4,
   smoothscroll = true,
   sidescrolloff = 4,
-  guifont = "Terminus (TTF):h14",
+  guifont = "Terminus (TTF):h12:#e-alias:#h-full", -- same as GNOME Terminal: Terminus (TTF) Medium 12, pixel-aligned
   --guifont = "Cascadia_Mono:h10",
 }
 
