@@ -1,2 +1,5 @@
 lazy-lock.json
 
+*.swp
+neovide_rCURRENT.log
+.omc/

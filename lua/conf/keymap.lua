@@ -98,7 +98,7 @@ vim.keymap.set("n", "<leader>f", function()
 end, { desc = "Format file" })
 
 -- Format JSON using jq
-vim.keymap.set("n", "<leader>fj", function()
+vim.keymap.set("n", "<leader>jf", function()
   vim.cmd("%!jq .")
 end, { desc = "Format JSON" })
 

@@ -19,9 +19,9 @@ local options = {
   splitright = true,
   swapfile = false,
   termguicolors = true,
-  timeoutlen = 1000,
+  timeoutlen = 300,
   undofile = true,
-  updatetime = 50,
+  updatetime = 100,
   writebackup = false,
   expandtab = true,
   shiftwidth = 4,
@@ -33,6 +33,7 @@ local options = {
   signcolumn = "yes",
   wrap = false,
   scrolloff = 4,
+  smoothscroll = true,
   sidescrolloff = 4,
   guifont = "Terminus (TTF):h14",
   --guifont = "Cascadia_Mono:h10",
@@ -55,12 +56,11 @@ vim.api.nvim_create_autocmd("FileType", {
     group = "FileTypeSpecific",
 })
 
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function() vim.opt_local.formatoptions:remove({ "c", "r", "o" }) end,
+})
 
 vim.opt.shortmess:append "c"
-
-vim.opt.clipboard = "unnamedplus"
 
 -- colorscheme is now set in plugin config
 
