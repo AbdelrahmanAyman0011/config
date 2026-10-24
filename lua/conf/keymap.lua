@@ -112,8 +112,8 @@ end, {})
 
 vim.api.nvim_create_user_command("DarkMode", function()
   vim.opt.background = "dark"
-  vim.cmd("colorscheme retrobox")
-  print("Switched to Dark Mode (Retrobox Dark)")
+  vim.cmd("colorscheme astrodark")
+  print("Switched to Dark Mode (AstroDark)")
 end, {})
 
 -- Keybind to toggle light/dark mode (Leader + t + l)

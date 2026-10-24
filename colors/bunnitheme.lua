@@ -3,7 +3,7 @@
 require('colorbuddy').setup()
 local Color = require('colorbuddy').Color
 local Group = require('colorbuddy').Group
-local g = require('colorbuddy. group').groups
+local g = require('colorbuddy.group').groups
 local c = require('colorbuddy.color').colors
 local s = require('colorbuddy.style').styles
 local b = s.bold

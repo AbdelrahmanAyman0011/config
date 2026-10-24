@@ -35,7 +35,12 @@ local options = {
   scrolloff = 4,
   smoothscroll = true,
   sidescrolloff = 4,
-  guifont = "Terminus (TTF):h12:#e-alias:#h-full", -- same as GNOME Terminal: Terminus (TTF) Medium 12, pixel-aligned
+  guifont = "Ubuntu Sans Mono:h13",
+  --guifont = "Lekton Nerd Font Mono:h14",
+  --guifont = "Fira Code:h12",
+  --guifont = "3270 Nerd Font:h14",
+  --guifont = "JetBrainsMono Nerd Font:h12",
+  --guifont = "Terminus (TTF):h12:#e-alias:#h-full", -- pixel font; matches GNOME Terminal
   --guifont = "Cascadia_Mono:h10",
 }
 

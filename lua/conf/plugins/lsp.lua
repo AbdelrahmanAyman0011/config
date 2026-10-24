@@ -6,6 +6,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/nvim-cmp",
+    "zbirenbaum/copilot-cmp",
   },
 
   config = function()
@@ -190,11 +191,13 @@ return {
       },
       sources = {
         { name = "nvim_lsp", group_index = 2 },
+        { name = "copilot", group_index = 2 },
         { name = "gemini", group_index = 2, keyword_length = 0 },
       },
       sorting = {
         priority_weight = 2,
         comparators = {
+          require("copilot_cmp.comparators").prioritize,
           cmp.config.compare.offset,
           cmp.config.compare.exact,
           cmp.config.compare.score,

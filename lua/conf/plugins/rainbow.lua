@@ -39,6 +39,10 @@ return {
     main = "ibl",
     event = { "BufReadPost", "BufNewFile" },
     config = function()
+      -- ibl re-creates its highlights on every :colorscheme; define ours in its own hook so
+      -- they exist at that moment (an autocmd of ours would run too late and ibl would error).
+      local hooks = require("ibl.hooks")
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, define_highlights)
       define_highlights()
       local dim = vim.tbl_map(function(n) return n .. "Dim" end, order)
       require("ibl").setup({

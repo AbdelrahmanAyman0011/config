@@ -29,4 +29,7 @@ end
 
 require "conf"
 vim.opt.background = "dark"
-vim.cmd("colorscheme retrobox")
+-- astrodark is applied by conf/plugins/astrotheme.lua; retrobox is the fallback
+if not pcall(vim.cmd.colorscheme, "astrodark") then
+  vim.cmd.colorscheme("retrobox")
+end
